@@ -1,0 +1,16 @@
+
+
+URI
+if /<namespace>/
+   xquery
+else if /file
+   serve file
+
+
+HTTP/GET URI
+
+HTTP/HEAD URI
+
+HTTP/POST URI
+
+HTTP/PUT URI
