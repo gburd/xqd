@@ -126,15 +126,15 @@ dnl	HAVE_TM_GMTOFF (defined)
 dnl
 AC_DEFUN(AC_ACME_TM_GMTOFF,
     [AC_MSG_CHECKING(if struct tm has tm_gmtoff member)
-    AC_CACHE_VAL(ac_cv_acme_tm_has_tm_gmtoff,
+    AC_CACHE_VAL(ac_cv_dbxmld_tm_has_tm_gmtoff,
 	AC_TRY_COMPILE([
 #	include <sys/types.h>
 #	include <time.h>],
 	[u_int i = sizeof(((struct tm *)0)->tm_gmtoff)],
-	ac_cv_acme_tm_has_tm_gmtoff=yes,
-	ac_cv_acme_tm_has_tm_gmtoff=no))
-    AC_MSG_RESULT($ac_cv_acme_tm_has_tm_gmtoff)
-    if test $ac_cv_acme_tm_has_tm_gmtoff = yes ; then
+	ac_cv_dbxmld_tm_has_tm_gmtoff=yes,
+	ac_cv_dbxmld_tm_has_tm_gmtoff=no))
+    AC_MSG_RESULT($ac_cv_dbxmld_tm_has_tm_gmtoff)
+    if test $ac_cv_dbxmld_tm_has_tm_gmtoff = yes ; then
 	    AC_DEFINE(HAVE_TM_GMTOFF)
     fi])
 
@@ -151,14 +151,14 @@ dnl	HAVE_INT64T (defined)
 dnl
 AC_DEFUN(AC_ACME_INT64T,
     [AC_MSG_CHECKING(if int64_t exists)
-    AC_CACHE_VAL(ac_cv_acme_int64_t,
+    AC_CACHE_VAL(ac_cv_dbxmld_int64_t,
 	AC_TRY_COMPILE([
 #	include <sys/types.h>],
 	[int64_t i64],
-	ac_cv_acme_int64_t=yes,
-	ac_cv_acme_int64_t=no))
-    AC_MSG_RESULT($ac_cv_acme_int64_t)
-    if test $ac_cv_acme_int64_t = yes ; then
+	ac_cv_dbxmld_int64_t=yes,
+	ac_cv_dbxmld_int64_t=no))
+    AC_MSG_RESULT($ac_cv_dbxmld_int64_t)
+    if test $ac_cv_dbxmld_int64_t = yes ; then
 	    AC_DEFINE(HAVE_INT64T)
     fi])
 
@@ -175,14 +175,14 @@ dnl	HAVE_SOCKLENT (defined)
 dnl
 AC_DEFUN(AC_ACME_SOCKLENT,
     [AC_MSG_CHECKING(if socklen_t exists)
-    AC_CACHE_VAL(ac_cv_acme_socklen_t,
+    AC_CACHE_VAL(ac_cv_dbxmld_socklen_t,
 	AC_TRY_COMPILE([
 #	include <sys/types.h>
 #	include <sys/socket.h>],
 	[socklen_t slen],
-	ac_cv_acme_socklen_t=yes,
-	ac_cv_acme_socklen_t=no))
-    AC_MSG_RESULT($ac_cv_acme_socklen_t)
-    if test $ac_cv_acme_socklen_t = yes ; then
+	ac_cv_dbxmld_socklen_t=yes,
+	ac_cv_dbxmld_socklen_t=no))
+    AC_MSG_RESULT($ac_cv_dbxmld_socklen_t)
+    if test $ac_cv_dbxmld_socklen_t = yes ; then
 	    AC_DEFINE(HAVE_SOCKLENT)
     fi])

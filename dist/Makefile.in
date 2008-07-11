@@ -1,6 +1,5 @@
-# Makefile.in for dbxmld
-
-
+# Makefile.in for thttpd
+#
 # Copyright © 1995,1998 by Jef Poskanzer <jef@mail.acme.com>.
 # All rights reserved.
 #
@@ -63,11 +62,11 @@ INSTALL =	@INSTALL@
 	@rm -f $@
 	$(CC) $(CFLAGS) -c $*.c
 
-SRC =		dbxmld.c libhttpd.c fdwatch.c mmc.c timers.c match.c tdate_parse.c
+SRC =		thttpd.c libhttpd.c fdwatch.c mmc.c timers.c match.c tdate_parse.c
 
 OBJ =		$(SRC:.c=.o) @LIBOBJS@
 
-ALL =		dbxmld
+ALL =		thttpd
 
 GENHDR =	mime_encodings.h mime_types.h
 
@@ -78,7 +77,7 @@ SUBDIRS =	cgi-src extras
 all:		this subdirs
 this:		$(ALL)
 
-dbxmld: $(OBJ)
+thttpd: $(OBJ)
 	@rm -f $@
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJ) $(LIBS) $(NETLIBS)
 
@@ -111,11 +110,11 @@ install:	installthis install-man installsubdirs
 
 installthis:
 	-mkdir -p $(DESTDIR)$(BINDIR)
-	$(INSTALL) -m 555 -o bin -g bin dbxmld $(DESTDIR)$(BINDIR)
+	$(INSTALL) -m 555 -o bin -g bin thttpd $(DESTDIR)$(BINDIR)
 
 install-man:
 	-mkdir -p $(DESTDIR)$(MANDIR)/man8
-	$(INSTALL) -m 444 -o bin -g bin dbxmld.8 $(DESTDIR)$(MANDIR)/man8
+	$(INSTALL) -m 444 -o bin -g bin thttpd.8 $(DESTDIR)$(MANDIR)/man8
 
 installsubdirs:
 	for i in $(SUBDIRS) ; do ( \
@@ -154,7 +153,7 @@ tags:
 	ctags -wtd *.c *.h
 
 tar:
-	@name=`sed -n -e '/SERVER_SOFTWARE/!d' -e 's,.*dbxmld/,dbxmld-,' -e 's, .*,,p' version.h` ; \
+	@name=`sed -n -e '/SERVER_SOFTWARE/!d' -e 's,.*thttpd/,thttpd-,' -e 's, .*,,p' version.h` ; \
 	  rm -rf $$name ; \
 	  mkdir $$name ; \
 	  tar cf - `cat FILES` | ( cd $$name ; tar xfBp - ) ; \
@@ -164,7 +163,7 @@ tar:
 	  rm -rf $$name ; \
 	  gzip $$name.tar
 
-dbxmld.o:	config.h version.h libhttpd.h fdwatch.h mmc.h timers.h match.h
+thttpd.o:	config.h version.h libhttpd.h fdwatch.h mmc.h timers.h match.h
 libhttpd.o:	config.h version.h libhttpd.h mime_encodings.h mime_types.h \
 		mmc.h timers.h match.h tdate_parse.h
 fdwatch.o:	fdwatch.h

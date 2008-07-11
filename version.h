@@ -1,4 +1,4 @@
-/* version.h - version defines for thttpd and libhttpd */
+/* version.h - version defines for dbxmld and libhttpd */
 
 #ifndef _VERSION_H_
 #define _VERSION_H_
