@@ -1,0 +1,47 @@
+XML-DB
+  http://xmldb-org.sourceforge.net/xapi/xapi-draft.html
+
+XML-RPC
+  http://www.xmlrpc.com/
+
+Sedna
+  http://www.okmij.org/ftp/Scheme/SXML.html
+  http://modis.ispras.ru/sedna/serverprotocol/ClientServerProtocol.html
+
+eXist (REST)
+  http://localhost:8080/exist/rest//db/home/services/xq/hello_world.xq
+  http://www.xml.com/lpt/a/1704
+
+XQuery/REST
+  http://en.wikibooks.org/wiki/XQuery/REST_interface_definition
+
+StylusStudio
+  http://www.stylusstudio.com/xquerytalk/200601/001074.html
+
+Xindice
+
+MarkLogic
+
+Oracle/XDB
+  Binary XML
+  HTTP/FTP
+
+IBM/DB2 Viper
+
+
+---------------------------------------------------
+
+URI
+if /<namespace>/
+   xquery
+else if /file
+   serve file
+
+
+HTTP/GET URI
+
+HTTP/HEAD URI
+
+HTTP/POST URI
+
+HTTP/PUT URI
