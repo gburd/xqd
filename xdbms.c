@@ -1,30 +1,8 @@
-/* dbxmld.c - Berkeley DB XML HTTP Server */
 /*
-**
-** Copyright © 1995,1998,1999,2000,2001 by Jef Poskanzer <jef@mail.acme.com>.
-** All rights reserved.
-**
-** Redistribution and use in source and binary forms, with or without
-** modification, are permitted provided that the following conditions
-** are met:
-** 1. Redistributions of source code must retain the above copyright
-**    notice, this list of conditions and the following disclaimer.
-** 2. Redistributions in binary form must reproduce the above copyright
-**    notice, this list of conditions and the following disclaimer in the
-**    documentation and/or other materials provided with the distribution.
-**
-** THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
-** ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-** IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-** ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
-** FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-** DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
-** OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
-** HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-** LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
-** OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
-** SUCH DAMAGE.
-*/
+ * xdbms.c - The Berkeley DB XML Database Management System (BDB XDBMS)
+ *
+ * Copyright (c) 2008, Oracle Corporation, all rights reserved.
+ */
 
 
 #include "config.h"
@@ -169,7 +147,7 @@ static void occasional( ClientData client_data, struct timeval* nowP );
 static void show_stats( ClientData client_data, struct timeval* nowP );
 #endif /* STATS_TIME */
 static void logstats( struct timeval* nowP );
-static void dbxmld_logstats( long secs );
+static void xdbms_logstats( long secs );
 
 
 /* SIGTERM and SIGINT say to exit immediately. */
@@ -2167,7 +2145,7 @@ logstats( struct timeval* nowP )
     syslog( LOG_INFO,
 	"up %ld seconds, stats for %ld seconds:", up_secs, stats_secs );
 
-    dbxmld_logstats( stats_secs );
+    xdbms_logstats( stats_secs );
     httpd_logstats( stats_secs );
     mmc_logstats( stats_secs );
     fdwatch_logstats( stats_secs );
@@ -2177,11 +2155,11 @@ logstats( struct timeval* nowP )
 
 /* Generate debugging statistics syslog message. */
 static void
-dbxmld_logstats( long secs )
+xdbms_logstats( long secs )
     {
     if ( secs > 0 )
 	syslog( LOG_INFO,
-	    "  dbxmld - %ld connections (%g/sec), %d max simultaneous, %lld bytes (%g/sec), %d httpd_conns allocated",
+	    "  xdbms - %ld connections (%g/sec), %d max simultaneous, %lld bytes (%g/sec), %d httpd_conns allocated",
 	    stats_connections, (float) stats_connections / secs,
 	    stats_simultaneous, (int64_t) stats_bytes,
 	    (float) stats_bytes / secs, httpd_conn_count );

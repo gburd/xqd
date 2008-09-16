@@ -1,20 +1,20 @@
 #!/bin/sh
 #
-# dbxmld.sh - startup script for dbxmld on FreeBSD
+# xdbms.sh - startup script for xdbms on FreeBSD
 #
 # This goes in /usr/local/etc/rc.d and gets run at boot-time.
 
 case "$1" in
 
     start)
-    if [ -x /usr/local/sbin/dbxmld_wrapper ] ; then
-	echo -n " dbxmld"
-	/usr/local/sbin/dbxmld_wrapper &
+    if [ -x /usr/local/sbin/xdbms_wrapper ] ; then
+	echo -n " xdbms"
+	/usr/local/sbin/xdbms_wrapper &
     fi
     ;;
 
     stop)
-    kill -USR1 `cat /var/run/dbxmld.pid`
+    kill -USR1 `cat /var/run/xdbms.pid`
     ;;
 
     *)

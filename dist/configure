@@ -2301,7 +2301,7 @@ esac
 
 echo $ac_n "checking if struct tm has tm_gmtoff member""... $ac_c" 1>&6
 echo "configure:2304: checking if struct tm has tm_gmtoff member" >&5
-    if eval "test \"`echo '$''{'ac_cv_dbxmld_tm_has_tm_gmtoff'+set}'`\" = set"; then
+    if eval "test \"`echo '$''{'ac_cv_xdbms_tm_has_tm_gmtoff'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
 else
   cat > conftest.$ac_ext <<EOF
@@ -2316,18 +2316,18 @@ u_int i = sizeof(((struct tm *)0)->tm_gmtoff)
 EOF
 if { (eval echo configure:2318: \"$ac_compile\") 1>&5; (eval $ac_compile) 2>&5; }; then
   rm -rf conftest*
-  ac_cv_dbxmld_tm_has_tm_gmtoff=yes
+  ac_cv_xdbms_tm_has_tm_gmtoff=yes
 else
   echo "configure: failed program was:" >&5
   cat conftest.$ac_ext >&5
   rm -rf conftest*
-  ac_cv_dbxmld_tm_has_tm_gmtoff=no
+  ac_cv_xdbms_tm_has_tm_gmtoff=no
 fi
 rm -f conftest*
 fi
 
-    echo "$ac_t""$ac_cv_dbxmld_tm_has_tm_gmtoff" 1>&6
-    if test $ac_cv_dbxmld_tm_has_tm_gmtoff = yes ; then
+    echo "$ac_t""$ac_cv_xdbms_tm_has_tm_gmtoff" 1>&6
+    if test $ac_cv_xdbms_tm_has_tm_gmtoff = yes ; then
 	    cat >> confdefs.h <<\EOF
 #define HAVE_TM_GMTOFF 1
 EOF
@@ -2335,7 +2335,7 @@ EOF
     fi
 echo $ac_n "checking if int64_t exists""... $ac_c" 1>&6
 echo "configure:2338: checking if int64_t exists" >&5
-    if eval "test \"`echo '$''{'ac_cv_dbxmld_int64_t'+set}'`\" = set"; then
+    if eval "test \"`echo '$''{'ac_cv_xdbms_int64_t'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
 else
   cat > conftest.$ac_ext <<EOF
@@ -2349,18 +2349,18 @@ int64_t i64
 EOF
 if { (eval echo configure:2351: \"$ac_compile\") 1>&5; (eval $ac_compile) 2>&5; }; then
   rm -rf conftest*
-  ac_cv_dbxmld_int64_t=yes
+  ac_cv_xdbms_int64_t=yes
 else
   echo "configure: failed program was:" >&5
   cat conftest.$ac_ext >&5
   rm -rf conftest*
-  ac_cv_dbxmld_int64_t=no
+  ac_cv_xdbms_int64_t=no
 fi
 rm -f conftest*
 fi
 
-    echo "$ac_t""$ac_cv_dbxmld_int64_t" 1>&6
-    if test $ac_cv_dbxmld_int64_t = yes ; then
+    echo "$ac_t""$ac_cv_xdbms_int64_t" 1>&6
+    if test $ac_cv_xdbms_int64_t = yes ; then
 	    cat >> confdefs.h <<\EOF
 #define HAVE_INT64T 1
 EOF
@@ -2368,7 +2368,7 @@ EOF
     fi
 echo $ac_n "checking if socklen_t exists""... $ac_c" 1>&6
 echo "configure:2371: checking if socklen_t exists" >&5
-    if eval "test \"`echo '$''{'ac_cv_dbxmld_socklen_t'+set}'`\" = set"; then
+    if eval "test \"`echo '$''{'ac_cv_xdbms_socklen_t'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
 else
   cat > conftest.$ac_ext <<EOF
@@ -2383,18 +2383,18 @@ socklen_t slen
 EOF
 if { (eval echo configure:2385: \"$ac_compile\") 1>&5; (eval $ac_compile) 2>&5; }; then
   rm -rf conftest*
-  ac_cv_dbxmld_socklen_t=yes
+  ac_cv_xdbms_socklen_t=yes
 else
   echo "configure: failed program was:" >&5
   cat conftest.$ac_ext >&5
   rm -rf conftest*
-  ac_cv_dbxmld_socklen_t=no
+  ac_cv_xdbms_socklen_t=no
 fi
 rm -f conftest*
 fi
 
-    echo "$ac_t""$ac_cv_dbxmld_socklen_t" 1>&6
-    if test $ac_cv_dbxmld_socklen_t = yes ; then
+    echo "$ac_t""$ac_cv_xdbms_socklen_t" 1>&6
+    if test $ac_cv_xdbms_socklen_t = yes ; then
 	    cat >> confdefs.h <<\EOF
 #define HAVE_SOCKLENT 1
 EOF

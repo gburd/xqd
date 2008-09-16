@@ -1,17 +1,17 @@
 #!/bin/sh
 #
-# dbxmld-rotate - nightly script to rotate dbxmld's log files on FreeBSD
+# xdbms-rotate - nightly script to rotate xdbms's log files on FreeBSD
 #
 # This goes in /etc/periodic/daily.  It rotates the log files and then
-# tells dbxmld to re-open its log file.
+# tells xdbms to re-open its log file.
 
 cd /usr/local/www/chroot/logs
-rm -f dbxmld_log.7
-mv dbxmld_log.6 dbxmld_log.7
-mv dbxmld_log.5 dbxmld_log.6
-mv dbxmld_log.4 dbxmld_log.5
-mv dbxmld_log.3 dbxmld_log.4
-mv dbxmld_log.2 dbxmld_log.3
-mv dbxmld_log.1 dbxmld_log.2
-mv dbxmld_log dbxmld_log.1
-kill -HUP `cat /var/run/dbxmld.pid`
+rm -f xdbms_log.7
+mv xdbms_log.6 xdbms_log.7
+mv xdbms_log.5 xdbms_log.6
+mv xdbms_log.4 xdbms_log.5
+mv xdbms_log.3 xdbms_log.4
+mv xdbms_log.2 xdbms_log.3
+mv xdbms_log.1 xdbms_log.2
+mv xdbms_log xdbms_log.1
+kill -HUP `cat /var/run/xdbms.pid`

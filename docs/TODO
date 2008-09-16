@@ -1,0 +1,19 @@
+* swap out mmc.[ch] to mpool
+* swap out any threading to db threading layer
+* swap out os functions to db/os/os_ wrappers
+* swap out any mutex/locking to use db locking subsystems
+* link in dbxml, add c/cxx layer
+* add auth/encryption
+* replace fdwatch with libevent
+* PHASE1: replace file-based access with xpath
+* PHASE2: session leases
+--- FINAL ---
+* update to latest thttpd/libevent code
+
+
+------------------------------------------
+
+/* implement a HTTP/GET into the BDB XML database */
+http://exist.sourceforge.net/devguide.html
+http://www.orbeon.com/ops/doc/processors-xmldb
+http://www.xquery.com/compare/comparison.html
