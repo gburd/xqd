@@ -1,3 +1,9 @@
+* ANSI C API layer for DBXML
+  * exceptions in C
+    http://www.freetype.org/david/reliable-c.html
+    http://www.webweavertech.com/libFoundation/doc/libFoundation_7.html
+    http://www.gnustep.org/resources/documentation/Developer/Base/ProgrammingManual/manual_6.html
+    http://www.pixelbeat.org/programming/gcc/static_assert.html
 * swap out mmc.[ch] to mpool
 * swap out any threading to db threading layer
 * swap out os functions to db/os/os_ wrappers
