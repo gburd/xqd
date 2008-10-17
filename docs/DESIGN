@@ -58,3 +58,30 @@ HTTP/HEAD URI
 HTTP/POST URI
 
 HTTP/PUT URI
+
+
+----------------------------------------------------
+Managing DB's limitations:
+
+DB is wonderful, but sometimes a bit unforgiving. For
+a server designed to run 24x7x365 there has to be some
+sort of strategy to manage this.
+
+Examples include:
+* mutex and lock region allocation
+  * how to size them at startup?
+  * how to manage issues when they run out
+* other unchangable aspects of DB at runtime
+* issues related to failchk()
+
+Strategy:
+Run two processes in HA mode, each as master.
+When some condition arises that reqiures a complete
+process shutdown/restart spawn a third master, then
+shut down one of the three and bring it up with the
+new config.  Do that to one of the other two processes
+as well.  Shut down the third process.  Now you have
+two live DB database environemnts with new configurations
+and things should be good.  There should have been no
+downtime/interruption at all.
+
