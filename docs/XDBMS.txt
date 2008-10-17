@@ -1,0 +1,122 @@
+Editing Spec.BDB-XDMS
+
+= Berkeley DB XML Database Management System 'BDB XDMS' Design =
+
+[wiki:XMLHomePage Berkeley DB XML Home]
+[[PageOutline]]
+
+== Overview ==
+
+The Berkeley DB XML library is an excellent embeddable XML/XQuery engine layered product on top of Berkeley DB.  It delivers on its design goals.  However, a large portion of the XML database market (citation?) expects a client/server style product where all interaction with the server is via HTTP and all communication is via XML.  This is a reality with all other XML database products on the market today except Berkeley DB XML.  BDB XDMS is a server encompassing Berkeley DB XML providing database management services over network connections. 
+
+== BDB XDMS ==
+
+The design of 1.0 should be simple, easy to implement and meet the needs of the majority of users asking for a client/server DBXML product.  It should have a simple HTTP-based API easily implementable in any language.  It does not need to mimic any existing on-the-wire XML database communication methods in any other products, Oracle owned or otherwise.  It should be simple, efficient and easily expanded.  The 1.0 wire protocol need not be the only supported protocol of this product, over time other methods of communication with the server could be added.  This design seeks to be quick, easy, unique and fit into the current design patterns and popular use cases of today's (and hopefully tomorrow's) networked applications.
+
+== Terminology ==
+
+ * ''cookie''
+ * HTTP transaction
+ * request cycle
+ * client
+ * server
+
+== Responsibilities of an XDMS ==
+
+ 1.
+
+ 
+== Sessions in a Stateless World ==
+
+The communication between client and server is essentially a REST-style API.  The primary problem with a REST/HTTP interface is that it is stateless, that is to say that HTTP has no notion of state from one request (POST, GET, HEAD, etc.) to the next (even in HTTP 1.1 where the only difference is that the network sock need not be closed between requests, still each request is an atomic unit).  This is why "cookies" and other methods for encoding session state exist in all web applications today.  Essentially, this API provides something akin to a cookie that has an expiration date, it is ''leased'' to the client.  That "cookie" is something associated with state that extends beyond a single HTTP transaction.
+
+Upon receiving a connection request (network `accept()` - detailed below) the server returns session information containing a lease.  The server keeps the network socket open as long as the client doesn't close it or it is closed for some other unknown reason.  The reason is that this connection then becomes the channel over which the server relays information ''other than that related to specific requests'' back to the client.  Things like error messages, notices, lease expiration information, new security tokens, and much more.  This connection itself is the way the server manages the notion of a stateful "session" with a client over a stateless communication protocol (HTTP).
+
+A session begins with an HTTP/POST `<connect />` request which returns a `<lease ttl='6000' />` in this case for 60 seconds.  When the 60 seconds is up one attempt is made to renew the lease via the still open/active HTTP connection established with the `connect` request.  If the lease isn't renewed, the connection is closed and the server cleans up all related resources and considers the client to be defunct.  If it is renewed either when the `renew` request is sent or at any time before the lease expires the client is considered to be alive.  Some clients will not keep the connection open after a `connect` request.  This is fine, but it will be their responsibility to renew their lease before it expires if they want their session tokens to remain valid.  At anytime either the client or the server can `terminate` the lease invalidating it which will require the request for a new lease by the client to maintain the server session otherwise that session is defunct.
+
+The concept of leasing with REST-style interactions over HTTP(s) and long-lived HTTP responses (some call them tunnels) combines a few best practices.  (''references and discussions of these uses to be added later``)
+
+== API ==
+
+The following are the messages sent to/from the server.
+
+=== connect ===
+
+{{{
+<connect />             --->
+                        <---
+<results code='200'>
+  <lease id='383838482' ttl='6000'>
+    <connection>
+      <auth />
+    </connection>
+  </lease>
+</results>
+<keep-alive  ... />
+}}}
+
+
+=== expire ===
+
+{{{
+<expire id='38833838' />             --->
+                                     <---
+}}}
+
+
+=== query ===
+
+ * right away
+ * delayed results
+ * prepared, not executed
+
+{{{
+<query />             --->
+                        <---
+}}}
+
+
+=== txn ===
+
+ * begin
+ * abort
+ * commit
+
+{{{
+<txn />             --->
+                        <---
+}}}
+
+
+=== results ===
+
+{{{
+<results />             --->
+                        <---
+}}}
+
+
+=== server ===
+
+{{{
+<server/>             --->
+                        <---
+}}}
+
+
+=== auth ===
+
+{{{
+<auth />             --->
+                        <---
+}}}
+
+
+=== FAQ ===
+
+ * ''Why not implement the ____ standard network interface?'' - 
+ * ''Why don't you support Binary XML on the wire?'' - 
+ * ''Why don't you have an ability to encode/decode/communicate with the server in various dialects (Google Protocol Buffers, JSON, etc.)?'' - 
+ * ''Why HTTP(S)?''
+ * ''Why not a pure REST model?''
+ * ''Why not XML/RPC, SOAP, or some other standards-based style of interaction?''
