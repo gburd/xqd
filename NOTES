@@ -1,0 +1,6 @@
+
+
+-- Todo:
+ * Double check the LICENSE file, make sure it's up to date
+ * Double check the LICENSE_EXCEPTIONS against MySQL, review differences
+ * Re-write the qpdb.1 man page
