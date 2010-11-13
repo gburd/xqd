@@ -1,11 +1,11 @@
 //
-// win_main.cpp
+// main.cpp
 // ~~~~~~~~~~~~
 //
-// Copyright (c) 2003-2010 Christopher M. Kohlhoff (chris at kohlhoff dot com)
+// Copyright (c) 2010 Gregory Burd, All Rights Reserved.
 //
-// Distributed under the Boost Software License, Version 1.0. (See accompanying
-// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+// Portions:
+// Copyright (c) 2003-2010 Christopher M. Kohlhoff (chris at kohlhoff dot com)
 //
 
 #include <iostream>
@@ -15,24 +15,6 @@
 #include "server.hpp"
 #include "file_handler.hpp"
 
-#if defined(_WIN32)
-
-boost::function0<void> console_ctrl_function;
-
-BOOL WINAPI console_ctrl_handler(DWORD ctrl_type)
-{
-  switch (ctrl_type)
-  {
-  case CTRL_C_EVENT:
-  case CTRL_BREAK_EVENT:
-  case CTRL_CLOSE_EVENT:
-  case CTRL_SHUTDOWN_EVENT:
-    console_ctrl_function();
-    return TRUE;
-  default:
-    return FALSE;
-  }
-}
 
 int main(int argc, char* argv[])
 {
@@ -70,5 +52,3 @@ int main(int argc, char* argv[])
 
   return 0;
 }
-
-#endif // defined(_WIN32)
