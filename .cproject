@@ -25,10 +25,12 @@
 							<tool id="cdt.managedbuild.tool.macosx.c.linker.macosx.exe.debug.1180427629" name="MacOS X C Linker" superClass="cdt.managedbuild.tool.macosx.c.linker.macosx.exe.debug"/>
 							<tool errorParsers="org.eclipse.cdt.core.GLDErrorParser" id="cdt.managedbuild.tool.macosx.cpp.linker.macosx.exe.debug.826706345" name="MacOS X C++ Linker" superClass="cdt.managedbuild.tool.macosx.cpp.linker.macosx.exe.debug">
 								<option id="macosx.cpp.link.option.libs.124304139" name="Libraries (-l)" superClass="macosx.cpp.link.option.libs" valueType="libs">
+									<listOptionValue builtIn="false" value="libdbxml"/>
 									<listOptionValue builtIn="false" value="boost_system-mt"/>
 									<listOptionValue builtIn="false" value="boost_thread-mt"/>
 								</option>
 								<option id="macosx.cpp.link.option.paths.361849735" name="Library search path (-L)" superClass="macosx.cpp.link.option.paths" valueType="libPaths">
+									<listOptionValue builtIn="false" value="/Users/gburd/eng/dbxml/install/lib"/>
 									<listOptionValue builtIn="false" value="/usr/local/lib"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.macosx.cpp.linker.input.2008401867" superClass="cdt.managedbuild.tool.macosx.cpp.linker.input">
@@ -44,6 +46,7 @@
 								<option id="gnu.cpp.compilermacosx.exe.debug.option.optimization.level.590758881" name="Optimization Level" superClass="gnu.cpp.compilermacosx.exe.debug.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.macosx.exe.debug.option.debugging.level.847389988" name="Debug Level" superClass="gnu.cpp.compiler.macosx.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.914759144" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="/Users/gburd/eng/dbxml/install/include"/>
 									<listOptionValue builtIn="false" value="/usr/local/include"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.600982343" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
@@ -54,6 +57,7 @@
 								<option id="gnu.c.compiler.option.warnings.pedantic.1437904757" name="Pedantic (-pedantic)" superClass="gnu.c.compiler.option.warnings.pedantic" value="true" valueType="boolean"/>
 								<option id="gnu.c.compiler.option.warnings.pedantic.error.1233875157" name="Pedantic warnings as errors (-pedantic-errors)" superClass="gnu.c.compiler.option.warnings.pedantic.error" value="false" valueType="boolean"/>
 								<option id="gnu.c.compiler.option.include.paths.1111732168" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="/Users/gburd/eng/dbxml/install/include"/>
 									<listOptionValue builtIn="false" value="/usr/local/include"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.2109705054" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>

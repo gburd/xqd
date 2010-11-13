@@ -38,8 +38,8 @@ int main(int argc, char* argv[])
     boost::asio::io_service io_service;
 
     // Launch the initial server coroutine.
-    http::server4::server(io_service, argv[1], argv[2],
-        http::server4::file_handler(argv[3]))();
+    xqd::http::server(io_service, argv[1], argv[2],
+        xqd::http::file_handler(argv[3]))();
 
     // Block all signals for background thread.
     sigset_t new_mask;

@@ -14,8 +14,8 @@
 #include <boost/lexical_cast.hpp>
 #include "request.hpp"
 
+namespace xqd {
 namespace http {
-namespace server4 {
 
 #include "yield.hpp" // Enable the pseudo-keywords reenter, yield and fork.
 

@@ -1,20 +1,13 @@
-//
-// xq_handler.hpp
-// ~~~~~~~~~~~~~~~~
-//
-// Copyright (c) 2010 Gregory Burd, All Rights Reserved.
-//
-// Portions:
-// Copyright (c) 2003-2010 Christopher M. Kohlhoff (chris at kohlhoff dot com)
-//
+//  Copyright (c) 2003-2010 Christopher M. Kohlhoff.  All rights reserved.
+//  Copyright (c) 2010-2011 Gregory Burd.  All rights reserved.
 
 #ifndef HTTP_SERVER4_xq_HANDLER_HPP
 #define HTTP_SERVER4_xq_HANDLER_HPP
 
 #include <string>
 
+namespace xqd {
 namespace http {
-namespace server4 {
 
 struct reply;
 struct request;

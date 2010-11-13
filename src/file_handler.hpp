@@ -13,8 +13,8 @@
 
 #include <string>
 
+namespace xqd {
 namespace http {
-namespace server4 {
 
 struct reply;
 struct request;

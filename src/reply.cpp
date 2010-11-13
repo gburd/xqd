@@ -12,8 +12,8 @@
 #include <string>
 #include <boost/lexical_cast.hpp>
 
+namespace xqd {
 namespace http {
-namespace server4 {
 
 namespace status_strings {
 

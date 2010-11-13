@@ -10,8 +10,8 @@
 
 #include "mime_types.hpp"
 
+namespace xqd {
 namespace http {
-namespace server4 {
 namespace mime_types {
 
 struct mapping

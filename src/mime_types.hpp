@@ -13,8 +13,8 @@
 
 #include <string>
 
+namespace xqd {
 namespace http {
-namespace server4 {
 namespace mime_types {
 
 /// Convert a file extension into a MIME type.

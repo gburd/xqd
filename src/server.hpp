@@ -1,12 +1,9 @@
-//
-// server.hpp
-// ~~~~~~~~~~
-//
-// Copyright (c) 2003-2010 Christopher M. Kohlhoff (chris at kohlhoff dot com)
-//
-// Distributed under the Boost Software License, Version 1.0. (See accompanying
-// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
-//
+/* -*- Mode: C++; tab-width: 2; c-basic-offset: 2; indent-tabs-mode: nil -*- */
+
+//  Copyright (c) 2003-2010 Christopher M. Kohlhoff.  All rights reserved.
+//  Copyright (c) 2010 Gregory Burd.  All rights reserved.
+
+// Non-blocking HTTP server using co-routines rather than threads.
 
 #ifndef HTTP_SERVER4_SERVER_HPP
 #define HTTP_SERVER4_SERVER_HPP
@@ -19,8 +16,8 @@
 #include "coroutine.hpp"
 #include "request_parser.hpp"
 
+namespace xqd {
 namespace http {
-namespace server4 {
 
 struct request;
 struct reply;

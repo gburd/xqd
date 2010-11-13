@@ -16,8 +16,8 @@
 #include <boost/asio.hpp>
 #include "header.hpp"
 
+namespace xqd {
 namespace http {
-namespace server4 {
 
 /// A reply to be sent to a client.
 struct reply

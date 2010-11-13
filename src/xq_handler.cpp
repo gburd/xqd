@@ -1,12 +1,8 @@
 //
-// xq_handler.cpp
-// ~~~~~~~~~~~~~~~~
-//
-// Copyright (c) 2010 Gregory Burd, All Rights Reserved.
-//
-// Portions:
-// Copyright (c) 2003-2010 Christopher M. Kohlhoff (chris at kohlhoff dot com)
-//
+//  Copyright (c) 2003-2010 Christopher M. Kohlhoff.  All rights reserved.
+//  Copyright (c) 2010-2011 Gregory Burd.  All rights reserved.
+
+// Handles all XQuery URI requests.
 
 #include "xq_handler.hpp"
 #include <sstream>
@@ -16,8 +12,8 @@
 #include "reply.hpp"
 #include "request.hpp"
 
+namespace xqd {
 namespace http {
-namespace server4 {
 
 xq_handler::xq_handler(const std::string& doc_root)
   : doc_root_(doc_root)

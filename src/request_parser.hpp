@@ -16,8 +16,8 @@
 #include <boost/tuple/tuple.hpp>
 #include "coroutine.hpp"
 
+namespace xqd {
 namespace http {
-namespace server4 {
 
 struct request;
 

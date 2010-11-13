@@ -17,8 +17,8 @@
 #include "reply.hpp"
 #include "request.hpp"
 
+namespace xqd {
 namespace http {
-namespace server4 {
 
 file_handler::file_handler(const std::string& doc_root)
   : doc_root_(doc_root)

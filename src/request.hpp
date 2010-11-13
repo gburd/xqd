@@ -15,8 +15,8 @@
 #include <vector>
 #include "header.hpp"
 
+namespace xqd {
 namespace http {
-namespace server4 {
 
 /// A request received from a client.
 struct request
