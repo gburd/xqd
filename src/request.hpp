@@ -8,8 +8,8 @@
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
 
-#ifndef HTTP_SERVER4_REQUEST_HPP
-#define HTTP_SERVER4_REQUEST_HPP
+#ifndef XQD_HTTP_REQUEST_HPP
+#define XQD_HTTP_REQUEST_HPP
 
 #include <string>
 #include <vector>
@@ -40,8 +40,8 @@ struct request
   std::string content;
 };
 
-} // namespace server4
 } // namespace http
+} // namespace xqd
 
-#endif // HTTP_SERVER4_REQUEST_HPP
+#endif // XQD_HTTP_REQUEST_HPP
 

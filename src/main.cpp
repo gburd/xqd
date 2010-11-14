@@ -8,30 +8,48 @@
 // Copyright (c) 2003-2010 Christopher M. Kohlhoff (chris at kohlhoff dot com)
 //
 
+#include "config.h"
+
 #include <iostream>
 #include <boost/asio.hpp>
 #include <boost/bind.hpp>
 #include <boost/function.hpp>
+
 #include "server.hpp"
 #include "file_handler.hpp"
 #include "xq_handler.hpp"
-#include "bdb.hpp"
+#include "xdb.hpp"
 
 
 // GLOBALS
-struct settings settings;
 bool daemon_quit = false;
 
 
-static void settings_init(void) {
-  settings.port = 34933;
-  settings.verbose = 0;
-  settings.num_threads = 1;
+#if defined(_WIN32)
+
+boost::function0<void> console_ctrl_function;
+
+BOOL WINAPI console_ctrl_handler(DWORD ctrl_type)
+{
+  switch (ctrl_type)
+  {
+  case CTRL_C_EVENT:
+  case CTRL_BREAK_EVENT:
+  case CTRL_CLOSE_EVENT:
+  case CTRL_SHUTDOWN_EVENT:
+    console_ctrl_function();
+    return TRUE;
+  default:
+    return FALSE;
+  }
 }
 
 int main(int argc, char* argv[])
 {
- try
+  settings.port = 34933;
+  settings.verbose = 0;
+  settings.num_threads = 1;
+  try
   {
     // Check command line arguments.
     if (argc != 4)
@@ -56,15 +74,15 @@ int main(int argc, char* argv[])
         &boost::asio::io_service::stop, &io_service);
     SetConsoleCtrlHandler(console_ctrl_handler, TRUE);
 
-    bdb_settings_init();
-    // Setup the Berkeley DB environment.
-    bdb_env_init();
+    xqd::xqd mgr = new xqd::xdb(true);
     // Start checkpoint and deadlock detect threads.
     start_chkpoint_thread();
     start_memp_trickle_thread();
     start_dl_detect_thread();
-    // Now, open an XML container.
-    bdb_dbxml_open();
+
+    // Now, connect to (open) an XML container.
+    mgr.connect("test.dbxml");
+
 
     // Run the server until stopped.
     io_service.run();
@@ -76,3 +94,6 @@ int main(int argc, char* argv[])
 
   return 0;
 }
+
+#endif // defined(_WIN32)
+
